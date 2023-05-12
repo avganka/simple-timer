@@ -10,9 +10,8 @@ const createTimerAnimator = () => {
 
 const animateTimer = createTimerAnimator();
 
-inputEl.addEventListener('input', () => {
-  // Очистите input так, чтобы в значении
-  // оставались только числа
+inputEl.addEventListener('input', (evt) => {
+  evt.target.value = evt.target.value.replace(/[^0-9]/g, '');
 });
 
 buttonEl.addEventListener('click', () => {
