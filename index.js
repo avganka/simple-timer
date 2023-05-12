@@ -2,9 +2,14 @@ const inputEl = document.querySelector('input');
 const buttonEl = document.querySelector('button');
 const timerEl = document.querySelector('span');
 
+let interval;
 const createTimerAnimator = () => {
   return (seconds) => {
-    const interval = setInterval(() => {
+    if (interval) {
+      clearInterval(interval);
+    }
+
+    interval = setInterval(() => {
       if (seconds <= 0) {
         clearInterval(interval);
         timerEl.textContent = formatTime(0);
